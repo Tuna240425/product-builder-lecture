@@ -1,26 +1,74 @@
+:root {
+    --bg-color: #f0f2f5;
+    --container-bg: #ffffff;
+    --text-color: #333333;
+    --button-bg: #4CAF50;
+    --button-hover: #45a049;
+    --button-glow: rgba(76, 175, 80, 0.7);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --ball-shadow: rgba(0, 0, 0, 0.2);
+    --texture-opacity: 0.05;
+}
+
+[data-theme='dark'] {
+    --bg-color: #1a1a1a;
+    --container-bg: #2d2d2d;
+    --text-color: #f0f2f5;
+    --button-bg: #45a049;
+    --button-hover: #4CAF50;
+    --button-glow: rgba(69, 160, 73, 0.7);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --ball-shadow: rgba(0, 0, 0, 0.5);
+    --texture-opacity: 0.15;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
-    background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-4c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 81c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm41 9c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-32-43c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm52-22c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" fill="%23000000" fill-opacity="0.05" fill-rule="evenodd"/%3E%3C/svg%3E');
+    background-color: var(--bg-color);
+    background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-4c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 81c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm41 9c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-32-43c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm52-22c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" fill="%23000000" fill-opacity="var(--texture-opacity)" fill-rule="evenodd"/%3E%3C/svg%3E');
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #app {
     text-align: center;
-    background-color: white;
+    background-color: var(--container-bg);
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-toggle:hover {
+    background-color: var(--bg-color);
 }
 
 h1 {
     font-size: 2.5em;
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    color: var(--text-color);
+    text-shadow: 2px 2px 4px var(--shadow-color);
+    margin-top: 20px;
 }
 
 #lotto-numbers {
@@ -40,7 +88,7 @@ h1 {
     font-weight: bold;
     color: white;
     margin: 0 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px var(--ball-shadow);
     transition: transform 0.2s;
 }
 
@@ -52,17 +100,17 @@ h1 {
     padding: 15px 30px;
     font-size: 1.2em;
     color: white;
-    background-color: #4CAF50;
+    background-color: var(--button-bg);
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px var(--shadow-color);
 }
 
 #generate-btn:hover, #generate-btn:focus {
-    background-color: #45a049;
-    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7);
+    background-color: var(--button-hover);
+    box-shadow: 0 0 20px var(--button-glow);
 }
 
 @media (max-width: 600px) {

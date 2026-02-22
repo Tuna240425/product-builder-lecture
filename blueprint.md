@@ -10,6 +10,13 @@ This project is a simple web application that generates random lottery numbers. 
     *   Basic HTML structure with `index.html`.
     *   Linked `style.css` for styling.
     *   Linked `main.js` for functionality.
+*   **Lotto Generator:**
+    *   Responsive UI for generating and displaying lotto numbers.
+    *   Dynamic ball colors based on number ranges.
+*   **Theming:**
+    *   Dark Mode and Light Mode support using CSS variables.
+    *   Persistent theme selection using `localStorage`.
+    *   Smooth transitions between themes.
 
 ## Current Task: Create Lotto Number Generator
 
