@@ -3,39 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>Dinner Menu Recommender</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app">
-        <button id="theme-toggle" title="Toggle Dark/Light Mode">🌓</button>
-        <h1>Dinner Menu Recommender</h1>
-        <div id="menu-display">
-            <p id="placeholder-text">What should we eat tonight?</p>
+        <div class="top-controls">
+            <button id="lang-toggle" title="한국어/English">EN</button>
+            <button id="theme-toggle" title="Toggle Dark/Light Mode">🌓</button>
         </div>
-        <button id="recommend-btn">Recommend Dinner</button>
+        <h1 data-en="Dinner Menu Recommender" data-ko="저녁 메뉴 추천">Dinner Menu Recommender</h1>
+        <div id="menu-display">
+            <p id="placeholder-text" data-en="What should we eat tonight?" data-ko="오늘 저녁 뭐 먹지?">What should we eat tonight?</p>
+        </div>
+        <button id="recommend-btn" data-en="Recommend Dinner" data-ko="저녁 메뉴 추천">Recommend Dinner</button>
 
         <hr class="section-divider">
 
         <section id="partnership-section">
-            <h2>Partnership Inquiry</h2>
+            <h2 data-en="Partnership Inquiry" data-ko="제휴 문의">Partnership Inquiry</h2>
             <form action="https://formspree.io/f/mreayrbg" method="POST" id="inquiry-form">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="Your Name" required>
+                    <label for="name" data-en="Name" data-ko="이름">Name</label>
+                    <input type="text" name="name" id="name" data-en-placeholder="Your Name" data-ko-placeholder="이름을 입력하세요" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="_replyto" id="email" placeholder="your@email.com" required>
+                    <label for="email" data-en="Email" data-ko="이메일">Email</label>
+                    <input type="email" name="_replyto" id="email" data-en-placeholder="your@email.com" data-ko-placeholder="your@email.com" placeholder="your@email.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" rows="4" placeholder="How can we help you?" required></textarea>
+                    <label for="message" data-en="Message" data-ko="메시지">Message</label>
+                    <textarea name="message" id="message" rows="4" data-en-placeholder="How can we help you?" data-ko-placeholder="무엇을 도와드릴까요?" placeholder="How can we help you?" required></textarea>
                 </div>
-                <button type="submit" id="submit-btn">Send Inquiry</button>
+                <button type="submit" id="submit-btn" data-en="Send Inquiry" data-ko="문의 보내기">Send Inquiry</button>
             </form>
         </section>
+
+        <hr class="section-divider">
+
+        <section id="disqus-section">
+            <h2 data-en="Comments" data-ko="댓글">Comments</h2>
+            <div id="disqus_thread"></div>
+        </section>
     </div>
+
     <script src="main.js"></script>
+    <script>
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://lecture-5.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </body>
 </html>

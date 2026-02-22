@@ -8,7 +8,7 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
     --card-shadow: rgba(0, 0, 0, 0.15);
     --texture-opacity: 0.05;
-    
+
     --korean-color: #e64980;
     --japanese-color: #228be6;
     --chinese-color: #fab005;
@@ -34,9 +34,10 @@ body {
     background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23000000" fill-opacity="var(--texture-opacity)"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4v-4H4v4H0v2h4v4h2v-4h4v-2H6zm30 0v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start;
+    min-height: 100vh;
     margin: 0;
+    padding: 40px 0;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -52,10 +53,33 @@ body {
     width: 90%;
 }
 
-#theme-toggle {
+.top-controls {
     position: absolute;
     top: 20px;
     right: 20px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#lang-toggle {
+    background: none;
+    border: 2px solid var(--text-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 8px;
+    color: var(--text-color);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#lang-toggle:hover {
+    background-color: var(--text-color);
+    color: var(--container-bg);
+}
+
+#theme-toggle {
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -237,6 +261,22 @@ h1 {
 
 #submit-btn:hover {
     opacity: 0.8;
+}
+
+/* Disqus Section */
+#disqus-section {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#disqus-section h2 {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+#disqus_thread {
+    min-height: 100px;
 }
 
 @media (max-width: 600px) {
