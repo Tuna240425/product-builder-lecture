@@ -4,21 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
 
     const menus = [
-        { name: 'Bibimbap', category: 'Korean' },
-        { name: 'Kimchi Jjigae', category: 'Korean' },
-        { name: 'Bulgogi', category: 'Korean' },
-        { name: 'Sushi', category: 'Japanese' },
-        { name: 'Ramen', category: 'Japanese' },
-        { name: 'Tonkatsu', category: 'Japanese' },
-        { name: 'Jajangmyeon', category: 'Chinese' },
-        { name: 'Tangsu-yuk', category: 'Chinese' },
-        { name: 'Dim Sum', category: 'Chinese' },
-        { name: 'Pasta', category: 'Western' },
-        { name: 'Steak', category: 'Western' },
-        { name: 'Pizza', category: 'Western' },
-        { name: 'Tteokbokki', category: 'Flour-based' },
-        { name: 'Gimbap', category: 'Flour-based' },
-        { name: 'Fried Chicken', category: 'Western' }
+        { name: 'Bibimbap', category: 'Korean', image: 'images/bibimbap.jpg' },
+        { name: 'Kimchi Jjigae', category: 'Korean', image: 'images/kimchi-jjigae.jpg' },
+        { name: 'Bulgogi', category: 'Korean', image: 'images/bulgogi.jpg' },
+        { name: 'Sushi', category: 'Japanese', image: 'images/sushi.jpg' },
+        { name: 'Ramen', category: 'Japanese', image: 'images/ramen.jpg' },
+        { name: 'Tonkatsu', category: 'Japanese', image: 'images/sushi.jpg' }, // Reuse sushi as placeholder
+        { name: 'Jajangmyeon', category: 'Chinese', image: 'images/jajangmyeon.jpg' },
+        { name: 'Tangsu-yuk', category: 'Chinese', image: 'images/jajangmyeon.jpg' }, // Reuse
+        { name: 'Dim Sum', category: 'Chinese', image: 'images/jajangmyeon.jpg' }, // Reuse
+        { name: 'Pasta', category: 'Western', image: 'images/pasta.jpg' },
+        { name: 'Steak', category: 'Western', image: 'images/steak.jpg' },
+        { name: 'Pizza', category: 'Western', image: 'images/pizza.jpg' },
+        { name: 'Tteokbokki', category: 'Flour-based', image: 'images/bibimbap.jpg' }, // Reuse
+        { name: 'Gimbap', category: 'Flour-based', image: 'images/bibimbap.jpg' }, // Reuse
+        { name: 'Fried Chicken', category: 'Western', image: 'images/chicken.jpg' }
     ];
 
     const categoryColors = {
@@ -59,6 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('menu-card');
         card.style.setProperty('--card-color', categoryColors[menu.category]);
         
+        const img = document.createElement('img');
+        img.src = menu.image;
+        img.alt = menu.name;
+        img.classList.add('menu-image');
+        
+        const info = document.createElement('div');
+        info.classList.add('menu-info');
+        
         const category = document.createElement('div');
         category.classList.add('menu-category');
         category.textContent = menu.category;
@@ -67,8 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
         name.classList.add('menu-name');
         name.textContent = menu.name;
         
-        card.appendChild(category);
-        card.appendChild(name);
+        info.appendChild(category);
+        info.appendChild(name);
+        card.appendChild(img);
+        card.appendChild(info);
         menuDisplay.appendChild(card);
     }
 
