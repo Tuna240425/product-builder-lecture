@@ -17,6 +17,10 @@ This project is a web application that recommends dinner menus randomly from var
     *   Clean, card-based layout.
     *   Subtle background texture.
     *   Responsive design for mobile and desktop.
+*   **Partnership Inquiry:**
+    *   Dedicated form section for business inquiries.
+    *   Integration with Formspree (https://formspree.io/f/mreayrbg) for easy message handling.
+    *   Fully styled for both light and dark themes.
 
 ## Current Task: Transform Lotto to Dinner Recommender
 

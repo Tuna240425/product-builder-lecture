@@ -167,6 +167,78 @@ h1 {
     transform: translateY(0);
 }
 
+.section-divider {
+    margin: 40px 0;
+    border: none;
+    border-top: 2px solid var(--bg-color);
+}
+
+#partnership-section {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#partnership-section h2 {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+#inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group input, .form-group textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+[data-theme='dark'] .form-group input, [data-theme='dark'] .form-group textarea {
+    border-color: #495057;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--button-bg);
+    box-shadow: 0 0 0 3px var(--button-glow);
+}
+
+#submit-btn {
+    padding: 12px;
+    font-size: 1em;
+    font-weight: 700;
+    color: white;
+    background-color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+#submit-btn:hover {
+    opacity: 0.8;
+}
+
 @media (max-width: 600px) {
     #app { padding: 40px 20px; }
     h1 { font-size: 1.8em; }
